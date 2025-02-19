@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects - E-Learning Platform</title>
+<link rel="icon" type="box-image" href="C:\Users\HP\Downloads\icons8-e-commerce-64.png">
+
+  <!-- Add Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-image: url('C:/Users/HP/Downloads/istockphoto-2162632112-1024x1024.jpg'); /* Add your background image */
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: rgba(0, 104, 234, 0.9); /* Semi-transparent blue */
+      color: white;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      font-weight: 600;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* Projects Section */
+    #projects {
+      margin: 2rem auto;
+      padding: 2rem;
+      max-width: 1200px;
+      background-color: rgba(255, 255, 255, 0.95); /* Semi-transparent white */
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    #projects h2 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      color: #333;
+      text-align: center;
+    }
+
+    .project-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .project-card {
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .project-card-content {
+      padding: 1.5rem;
+    }
+
+    .project-card h3 {
+      margin: 0 0 1rem;
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: #333;
+    }
+
+    .project-card h3 i {
+      font-size: 1.5rem;
+      color: #6200ea; /* Purple icon color */
+    }
+
+    .project-card p {
+      margin: 0 0 1.5rem;
+      color: #555;
+      font-size: 1rem;
+    }
+
+    .project-card button {
+      background-color: #03dac6;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+      width: 100%;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+    }
+
+    .project-card button:hover {
+      background-color: #018786;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background-color: rgba(51, 51, 51, 0.9); /* Semi-transparent dark gray */
+      color: white;
+      margin-top: 2rem;
+    }
+
+    footer p {
+      margin: 0;
+      font-size: 0.9rem;
+    }
+
+    /* Color-coded backgrounds for projects */
+    .project-card[data-color="blue"] {
+      background-color: #e3f2fd; /* Light blue */
+    }
+
+    .project-card[data-color="green"] {
+      background-color: #e8f5e9; /* Light green */
+    }
+
+    .project-card[data-color="orange"] {
+      background-color: #fff3e0; /* Light orange */
+    }
+
+    .project-card[data-color="purple"] {
+      background-color: #f3e5f5; /* Light purple */
+    }
+
+    .project-card[data-color="red"] {
+      background-color: #ffebee; /* Light red */
+    }
+
+    .project-card[data-color="teal"] {
+      background-color: #e0f2f1; /* Light teal */
+    }
+
+    .project-card[data-color="yellow"] {
+      background-color: #fff9c4; /* Light yellow */
+    }
+
+    .project-card[data-color="pink"] {
+      background-color: #fce4ec; /* Light pink */
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Projects - E-Learning Platform</h1>
+  </header>
+
+  <main>
+    <section id="projects">
+      <h2>Available Projects</h2>
+      <div class="project-list" id="project-list">
+        <!-- Projects will be dynamically populated by JavaScript -->
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 E-Learning Platform</p>
+  </footer>
+
+  <script>
+    // Sample project data with colors
+    const projects = [
+      {
+        title: "E-Commerce Website",
+        description: "Build a full-stack e-commerce website using React and Node.js.",
+        difficulty: "Intermediate",
+        icon: "fas fa-shopping-cart", // Font Awesome icon for E-Commerce
+        color: "blue", // Light blue background
+      },
+      {
+        title: "Chat Application",
+        description: "Create a real-time chat app using WebSockets and React.",
+        difficulty: "Advanced",
+        icon: "fas fa-comments", // Font Awesome icon for Chat
+        color: "green", // Light green background
+      },
+      {
+        title: "To-Do List App",
+        description: "Develop a simple to-do list app using HTML, CSS, and JavaScript.",
+        difficulty: "Beginner",
+        icon: "fas fa-tasks", // Font Awesome icon for To-Do List
+        color: "orange", // Light orange background
+      },
+      {
+        title: "Weather App",
+        description: "Build a weather app using a public API and React.",
+        difficulty: "Intermediate",
+        icon: "fas fa-cloud-sun", // Font Awesome icon for Weather
+        color: "purple", // Light purple background
+      },
+      {
+        title: "Portfolio Website",
+        description: "Create a personal portfolio website using HTML, CSS, and JavaScript.",
+        difficulty: "Beginner",
+        icon: "fas fa-user", // Font Awesome icon for Portfolio
+        color: "red", // Light red background
+      },
+      {
+        title: "Machine Learning Model",
+        description: "Train a machine learning model to predict house prices.",
+        difficulty: "Advanced",
+        icon: "fas fa-brain", // Font Awesome icon for Machine Learning
+        color: "teal", // Light teal background
+      },
+      {
+        title: "Blog Platform",
+        description: "Develop a blog platform using Django and PostgreSQL.",
+        difficulty: "Intermediate",
+        icon: "fas fa-blog", // Font Awesome icon for Blog
+        color: "yellow", // Light yellow background
+      },
+      {
+        title: "Mobile Expense Tracker",
+        description: "Build a mobile app to track expenses using Flutter.",
+        difficulty: "Advanced",
+        icon: "fas fa-wallet", // Font Awesome icon for Expense Tracker
+        color: "pink", // Light pink background
+      },
+    ];
+
+    // Function to display projects
+    function displayProjects() {
+      const projectList = document.getElementById('project-list');
+      projectList.innerHTML = projects
+        .map(
+          (project) => `
+          <div class="project-card" data-color="${project.color}">
+            <div class="project-card-content">
+              <h3><i class="${project.icon}"></i> ${project.title}</h3>
+              <p>${project.description}</p>
+              <p><strong>Difficulty:</strong> ${project.difficulty}</p>
+              <button onclick="startProject('${project.title}')">Start Project</button>
+            </div>
+          </div>
+        `
+        )
+        .join('');
+    }
+
+    // Function to handle starting a project
+    function startProject(projectTitle) {
+      alert(`Starting project: ${projectTitle}`);
+      // Redirect to the specified URL
+      window.location.href = "https://www.onlinemanipal.com";
+    }
+
+    // Load projects when the page loads
+    document.addEventListener('DOMContentLoaded', () => {
+      displayProjects();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Admin Dashboard</title>
+  <link rel="icon" type="image/png" href="https://example.com/path-to-your-icon.png"> <!-- Replace with your favicon URL -->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #6a11cb, #2575fc); /* Gradient background */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: #333;
+    }
+
+    .login-container {
+      background: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+      padding: 2.5rem;
+      border-radius: 15px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      width: 320px;
+    }
+
+    .login-container h2 {
+      margin-bottom: 1.5rem;
+      color: #333;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+      outline: none;
+      transition: border-color 0.3s ease;
+    }
+
+    input:focus {
+      border-color: #6a11cb;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #6a11cb;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #2575fc;
+    }
+
+    .error-message {
+      color: #ff4d4d;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .success-message {
+      color: #28a745;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h2>Student Login</h2>
+    <input type="text" id="username" placeholder="Username">
+    <input type="password" id="password" placeholder="Password">
+    <button onclick="login()">Login</button>
+    <p id="error-message" class="error-message"></p>
+    <p id="success-message" class="success-message"></p>
+  </div>
+
+<script>
+    function login() {
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+        const errorMessage = document.getElementById('error-message');
+        const successMessage = document.getElementById('success-message');
+
+        errorMessage.innerText = '';
+        successMessage.innerText = '';
+
+        if (username === 'admin' && password === 'password123') {
+            successMessage.innerText = 'Login Successful! Redirecting...';
+            setTimeout(() => {
+                window.location.href = 'file:///C:/Users/HP/OneDrive/Desktop/myproject/student dash.html'; // Replace with your actual dashboard URL
+            }, 2000); // Redirect after 2 seconds
+
+        } else if (username === 'user' && password === 'password') { // Fixed "if else" to "else if"
+            successMessage.innerText = 'Login Successful! Redirecting...';
+            setTimeout(() => {
+                window.location.href = 'file:///C:/Users/HP/OneDrive/Desktop/myproject/student dash2.html'; // Replace with your actual dashboard URL
+            }, 2000); // Redirect after 2 seconds
+
+        } else {
+            errorMessage.innerText = 'Invalid credentials!';
+        }
+    }
+</script>
+
+</body>
+</html>

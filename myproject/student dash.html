@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduSmart - Cyber Security</title>
+<link rel="icon" type="box-image" href="C:\Users\HP\Downloads\icons8-dashboard-50.png">
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Trirong">
+
+
+  
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f9;
+      color: #333;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    body.dark-mode {
+      background-color: #333;
+      color: #f4f4f9;
+    }
+
+    header {
+      background-color: #6200ea;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-around;
+      background-color: #333;
+      padding: 0.5rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+    }
+
+    nav a:hover {
+      background-color: #555;
+    }
+
+    .dashboard {
+      padding: 2rem;
+background-image: url("https://media.istockphoto.com/id/1451316016/photo/lms-learning-management-system-for-lesson-and-online-education-course-application-study-e.jpg?s=1024x1024&w=is&k=20&c=CjHToG8qpudQ18kpQDXOg5rCqPqG_WyZymMczgbDmSY=");
+    }
+
+    .profile-section {
+      background-color: #ffffffc4;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .profile-section h2 {
+      margin: 0 0 0.5rem;
+      color: #6200ea;
+    }
+
+    .profile-section p {
+      margin: 0.5rem 0;
+    }
+
+    .profile-section img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+    }
+
+    .profile-section .contact-info {
+      margin: 1rem 0;
+    }
+
+    .profile-section .contact-info p {
+      margin: 0.25rem 0;
+    }
+
+    .profile-section .links {
+      margin-top: 1rem;
+    }
+
+    .profile-section .links a {
+      display: inline-block;
+      margin: 0.5rem;
+      padding: 0.5rem 1rem;
+      background-color: #03dac6;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .profile-section .links a:hover {
+      background-color: #018786;
+    }
+
+    .courses {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .course-card {
+      background: linear-gradient(135deg, #6200ea, #bb86fc);
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      color: white;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .course-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+    }
+
+    .course-card h3 {
+      margin: 0 0 0.5rem;
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .course-card h3 i {
+      font-size: 1.5rem;
+      color: #ffd700; /* Gold color for icons */
+    }
+
+    .course-card p {
+      margin: 0 0 1rem;
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+
+    .course-card .progress-bar {
+      background-color: rgba(255, 255, 255, 0.3);
+      border-radius: 8px;
+      overflow: hidden;
+      height: 10px;
+      margin: 1rem 0;
+    }
+
+    .course-card .progress-bar-fill {
+      background-color: #ffd700; /* Gold color for progress */
+      height: 100%;
+      border-radius: 8px;
+      width: 60%; /* Example progress */
+    }
+
+    .course-card button {
+      background-color: #03dac6;
+      border: none;
+      padding: 0.5rem 1rem;
+      color: white;
+      cursor: pointer;
+      border-radius: 5px;
+      font-size: 1rem;
+      transition: background-color 0.3s ease;
+    }
+
+    .course-card button:hover {
+      background-color: #018786;
+    }
+
+    .course-card input[type="file"] {
+      display: none;
+    }
+
+    .course-card .upload-label {
+      background-color: #ff4081;
+      border: none;
+      padding: 0.5rem 1rem;
+      color: white;
+      cursor: pointer;
+      border-radius: 5px;
+      font-size: 1rem;
+      transition: background-color 0.3s ease;
+      display: inline-block;
+      margin-top: 0.5rem;
+    }
+
+    .course-card .upload-label:hover {
+      background-color: #e91e63;
+    }
+
+    .announcements {
+      background-color: white;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      margin-top: 2rem;
+    }
+
+    .announcements h2 {
+      margin: 0 0 1rem;
+      color: #6200ea;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #333;
+      color: white;
+      margin-top: 2rem;
+    }
+
+    .search-bar {
+      margin: 1rem 0;
+      text-align: center;
+    }
+
+    .search-bar input {
+      width: 80%;
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .dark-mode-toggle {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      background-color: #6200ea;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .notifications {
+      position: fixed;
+      top: 1rem;
+      left: 1rem;
+      background-color: #6200ea;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .notifications-dropdown {
+      display: none;
+      position: absolute;
+      background-color: black;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 1rem;
+      width: 200px;
+      z-index: 1;
+    }
+
+    .notifications:hover .notifications-dropdown {
+      display: block;
+    }
+
+    /* Calendar Modal */
+    .calendar-modal {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+    }
+
+    .calendar-modal h2 {
+      margin: 0 0 1rem;
+      color: #6200ea;
+    }
+
+    .calendar {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 0.5rem;
+    }
+
+    .calendar div {
+      padding: 0.5rem;
+      text-align: center;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .calendar div:hover {
+      background-color: #f4f4f9;
+      cursor: pointer;
+    }
+
+    .overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 999;
+    }
+
+    .container {
+      display: flex;
+      justify-content: space-between;
+      padding: 2rem;
+    }
+
+    .student-details {
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      width: 45%;
+    }
+
+    .student-details h2 {
+      color: #6200ea;
+    font-family: "Sofia", sans-serif;
+    }
+
+    .student-details p {
+      font-size: 1.1rem;
+      margin: 0.5rem 0;
+     font-family: "Trirong", serif;
+
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Welcome to EduSmart - Cyber Security</h1>
+  </header>
+  <nav>
+    <a href="#" id="academic-calendar">Academic Calendar</a>
+    <a href="file:///C:/Users/HP/OneDrive/Desktop/myproject/progress.html" target="_blank">My Learning</a>
+    <a href="#">Exam</a>
+    <a href="https://joinsuperset.com/login.html" target="_blank">Jobs</a>
+    <a href="#">Bookmarks</a>
+    <a href="#">Notification</a>
+    <a href="#">Private Files</a>
+    <a href="#" id="contact-us">Contact Us</a>
+    <a href="#" id="logout">Logout</a>
+  </nav>
+  <div class="dashboard">
+    <div class="container">
+      <div class="student-details">
+        <h2>Student Course Details</h2>
+        <p><strong>Aadhar No:</strong> 1234-5678-9012</p>
+        <p><strong>Amount Paid:</strong> ₹90,000</p>
+        <p><strong>Father's Name:</strong> Mr. xyz Yadav</p>
+        <p><strong>Mother's Name:</strong> Mrs. xyz Yadav</p>
+       <p><strong>Enrollment No:</strong> SY000SPQ7645</p>
+       <p><strong>Course Name:</strong> Cyber Security</p>
+       <p><strong>DOB:</strong> 10-07-2001</p>
+      <p><strong>Address:</strong> Uttar Pradesh Kook Nagar </p>
+      </div>
+      <div class="profile-section">
+        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Profile Picture">
+        <h2>SHANI YADAV</h2>
+        <div class="contact-info">
+          <p>shaniyadav226@gmail.com</p>
+          <p>8104652145</p>
+        </div>
+        <div class="links">
+          <a href="file:///C:/Users/HP/OneDrive/Desktop/myproject/index.html" target="_blank">Go To Home</a>
+          <a href="#">Academic Schedule</a>
+        </div>
+      </div>
+    </div>
+    <div class="courses">
+      <div class="course-card">
+        <h3><i class="fas fa-book"></i> Digital forensics</h3>
+        <p>Sub. Code : CS 101</p>
+        <div class="progress-bar">
+          <div class="progress-bar-fill"></div>
+        </div>
+        <button>Explore</button>
+        <label class="upload-label" for="avatar1">Upload Assignment</label>
+        <input type="file" id="avatar1" name="avatar" accept="image/png, image/jpeg" />
+      </div>
+      <div class="course-card">
+        <h3><i class="fas fa-laptop"></i> Network security</h3>
+        <p>Sub. Code : CS 102</p>
+        <div class="progress-bar">
+          <div class="progress-bar-fill"></div>
+        </div>
+        <button>Explore</button>
+        <label class="upload-label" for="avatar2">Upload Assignment</label>
+        <input type="file" id="avatar2" name="avatar" accept="image/png, image/jpeg" />
+      </div>
+      <div class="course-card">
+        <h3><i class="fas fa-comments"></i> Ethical hacking</h3>
+        <p>Sub. Code : CS 103</p>
+        <div class="progress-bar">
+          <div class="progress-bar-fill"></div>
+        </div>
+        <button>Explore</button>
+        <label class="upload-label" for="avatar3">Upload Assignment</label>
+        <input type="file" id="avatar3" name="avatar" accept="image/png, image/jpeg" />
+      </div>
+      <div class="course-card">
+        <h3><i class="fas fa-calculator"></i> Cybersecurity Fundamentals</h3>
+        <p>Sub. Code : CS 104</p>
+        <div class="progress-bar">
+          <div class="progress-bar-fill"></div>
+        </div>
+        <button>Explore</button>
+        <label class="upload-label" for="avatar4">Upload Assignment</label>
+        <input type="file" id="avatar4" name="avatar" accept="image/png, image/jpeg" />
+      </div>
+    </div>
+    <div class="announcements">
+      <h2>Announcements</h2>
+      <p>Dear students, the results for the January 2025 examinations have been declared. Please check the result link in the exam zone of your student login.</p>
+      <p>Congratulations to all successful students!</p>
+    </div>
+  </div>
+  <footer>
+    <p>&copy; 2025 EduSmart Online Program</p>
+    <p>Center for Distance & Online Education</p>
+  </footer>
+
+  <div class="notifications">
+    Notifications
+    <div class="notifications-dropdown">
+      <p>New assignment uploaded.</p>
+      <p>Exam results declared.</p>
+    </div>
+  </div>
+
+  <button class="dark-mode-toggle" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+
+  <!-- Calendar Modal -->
+  <div class="overlay" id="overlay"></div>
+  <div class="calendar-modal" id="calendar-modal">
+    <h2>Academic Calendar</h2>
+    <div class="calendar">
+      <div>Sun</div>
+      <div>Mon</div>
+      <div>Tue</div>
+      <div>Wed</div>
+      <div>Thu</div>
+      <div>Fri</div>
+      <div>Sat</div>
+      <!-- Example calendar days -->
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+      <div>4</div>
+      <div>5</div>
+      <div>6</div>
+      <div>7</div>
+      <!-- Add more days as needed -->
+    </div>
+    <button onclick="closeCalendar()">Close</button>
+  </div>
+
+  <script>
+    // Handle Contact Us click
+    document.getElementById('contact-us').addEventListener('click', function(event) {
+      event.preventDefault(); // Prevent default link behavior
+      alert("Contact Us:\nPhone: +918104652145\nHelp: helpdesk@mujonline.edu.in\nEmail: royal.2214511584@mujonline.edu.in");
+    });
+
+    // Handle Logout click
+    document.getElementById('logout').addEventListener('click', function(event) {
+      event.preventDefault(); // Prevent default link behavior
+      window.location.href = 'login.html'; // Redirect to login page
+    });
+
+    // Toggle Dark Mode
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+    }
+
+    // Open Calendar
+    document.getElementById('academic-calendar').addEventListener('click', function(event) {
+      event.preventDefault(); // Prevent default link behavior
+      document.getElementById('calendar-modal').style.display = 'block';
+      document.getElementById('overlay').style.display = 'block';
+    });
+
+    // Close Calendar
+    function closeCalendar() {
+      document.getElementById('calendar-modal').style.display = 'none';
+      document.getElementById('overlay').style.display = 'none';
+    }
+  </script>
+</body>
+</html>

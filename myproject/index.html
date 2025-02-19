@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-Learning Platform</title>
+ <link rel="icon" type="box-image" href="C:\Users\HP\Downloads\icons8-story-book-48 (1).png">
+<style>
+ 
+
+
+    /* General Styles */
+    body {
+      font-family: "Trirong", serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f9;
+      color: #333;
+      line-height: 2;
+    }
+
+    header {
+      background-color: #6200ea;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 3.5rem;
+      font-weight: 600;
+    }
+
+    nav {
+      margin-top: 1rem;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 1.5rem;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1.5rem;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #bb86fc;
+    }
+
+    main {
+      padding: 2rem;
+    }
+
+    section {
+      margin-bottom: 3rem;
+    }
+
+    #dashboard, #home {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 3rem;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .dashboard-section, .home-section {
+      margin-bottom: 2rem;
+    }
+
+    .dashboard-section h2, .home-section h2 {
+      border-bottom: 2px solid #6200ea;
+      padding-bottom: 0.5rem;
+      color: #6200ea;
+      font-size: 1.8rem;
+      font-weight: 600;
+    }
+
+    .dashboard-item, .home-item {
+      padding: 1.5rem;
+      border-bottom: 1px solid #ddd;
+      transition: background-color 0.3s ease;
+    }
+
+    .dashboard-item:hover, .home-item:hover {
+      background-color: #f4f4f9;
+    }
+
+    .dashboard-item:last-child, .home-item:last-child {
+      border-bottom: none;
+    }
+
+    .progress-bar {
+      background-color: #e0e0e0;
+      border-radius: 8px;
+      overflow: hidden;
+      height: 10px;
+      margin-top: 0.5rem;
+    }
+
+    .progress-bar-fill {
+      background-color: #6200ea;
+      height: 100%;
+      border-radius: 8px;
+      transition: width 0.5s ease;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background-color: #333;
+      color: white;
+      margin-top: 3rem;
+    }
+
+    footer p {
+      margin: 0;
+      font-size: 1rem;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .dashboard-section, .home-section {
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      header {
+        padding: 1.5rem;
+      }
+
+      header h1 {
+        font-size: 2rem;
+      }
+
+      nav a {
+        margin: 0 1rem;
+        font-size: 1rem;
+      }
+
+      main {
+        padding: 1rem;
+      }
+
+      #dashboard, #home {
+        padding: 1.5rem;
+      }
+
+      .dashboard-section h2, .home-section h2 {
+        font-size: 1.5rem;
+      }
+
+      .dashboard-item, .home-item {
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>E-Learning Platform</h1>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#dashboard">Dashboard</a>
+      <a href="file:///C:/Users/HP/OneDrive/Desktop/myproject/course.html" target="_blank">Courses</a>
+      <a href="file:///C:/Users/HP/OneDrive/Desktop/myproject/project.html" target="_blank">Projects</a>
+      <a href="file:///C:/Users/HP/OneDrive/Desktop/myproject/login.html" target="_blank">Student Login</a>
+      <a href="C:\Users\HP\OneDrive\Documents\myRESUME.pdf" target="_blank"> My Resume</a>
+    </nav>
+  </header>
+  <main>
+    <!-- Home Section -->
+    <section id="home">
+      <div class="home-section">
+        <h2>Welcome to Our E-Learning Platform</h2>
+        <div class="home-item">
+          <h3>About Our Learning Portal</h3>
+          <p>Our e-learning platform is designed to provide you with the best resources and courses to enhance your skills in various fields such as cybersecurity, blockchain, C++ app development, and more. Whether you are a beginner or an advanced learner, we have something for everyone.</p>
+        </div>
+        <div class="home-item">
+          <h3>Courses Offered</h3>
+          <ul>
+            <li><strong>Cybersecurity:</strong> Learn the fundamentals of cybersecurity, including network security, ethical hacking, and threat management.</li>
+            <li><strong>Blockchain:</strong> Dive into the world of blockchain technology, covering topics like smart contracts, decentralized applications, and cryptocurrency.</li>
+            <li><strong>C++ App Development:</strong> Master C++ programming and develop robust applications with our comprehensive course.</li>
+            <li><strong>Web Development:</strong> From HTML/CSS to advanced JavaScript frameworks, become a full-stack web developer.</li>
+            <li><strong>Data Science:</strong> Explore data analysis, machine learning, and big data technologies.</li>
+          </ul>
+        </div>
+        <div class="home-item">
+          <h3>About Our Projects</h3>
+          <p>Our platform also offers hands-on projects to help you apply what you've learned in real-world scenarios. From building secure networks to developing blockchain-based applications, our projects are designed to challenge and enhance your skills.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dashboard Section -->
+    <section id="dashboard">
+      <!-- Enrolled Courses Section -->
+      <div class="dashboard-section">
+        <h2>Enrolled Courses</h2>
+        <div id="enrolled-courses">
+          <!-- Dynamically populated by JavaScript -->
+          <p>No courses enrolled yet.</p>
+        </div>
+      </div>
+
+      <!-- Completed Projects Section -->
+      <div class="dashboard-section">
+        <h2>Completed Projects</h2>
+        <div id="completed-projects">
+          <!-- Dynamically populated by JavaScript -->
+          <p>No projects completed yet.</p>
+        </div>
+      </div>
+
+      <!-- Progress Section -->
+      <div class="dashboard-section">
+        <h2>Your Progress</h2>
+        <div id="progress">
+          <!-- Dynamically populated by JavaScript -->
+          <p>No progress data available.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2025 E-Learning Platform Developed By Shani</p>
+  </footer>
+
+  <script>
+    // Sample data for the dashboard (replace with real data from the backend)
+    const enrolledCourses = [
+      { title: "Advanced Java Programming", progress: "50%" },
+      { title: "Web Development with React", progress: "30%" },
+    ];
+
+    const completedProjects = [
+      { title: "E-Commerce Website", date: "2023-10-01" },
+      { title: "Chat Application", date: "2023-09-15" },
+    ];
+
+    const progressData = {
+      totalCourses: 5,
+      completedCourses: 2,
+      totalProjects: 10,
+      completedProjects: 4,
+    };
+
+    // Function to display enrolled courses
+    function displayEnrolledCourses() {
+      const coursesContainer = document.getElementById('enrolled-courses');
+      if (enrolledCourses.length > 0) {
+        coursesContainer.innerHTML = enrolledCourses
+          .map(
+            (course) => `
+            <div class="dashboard-item">
+              <h3>${course.title}</h3>
+              <div class="progress-bar">
+                <div class="progress-bar-fill" style="width: ${course.progress};"></div>
+              </div>
+            </div>
+          `
+          )
+          .join('');
+      } else {
+        coursesContainer.innerHTML = '<p>No courses enrolled yet.</p>';
+      }
+    }
+
+    // Function to display completed projects
+    function displayCompletedProjects() {
+      const projectsContainer = document.getElementById('completed-projects');
+      if (completedProjects.length > 0) {
+        projectsContainer.innerHTML = completedProjects
+          .map(
+            (project) => `
+            <div class="dashboard-item">
+              <h3>${project.title}</h3>
+              <p>Completed on: ${project.date}</p>
+            </div>
+          `
+          )
+          .join('');
+      } else {
+        projectsContainer.innerHTML = '<p>No projects completed yet.</p>';
+      }
+    }
+
+    // Function to display progress
+    function displayProgress() {
+      const progressContainer = document.getElementById('progress');
+      progressContainer.innerHTML = `
+        <div class="dashboard-item">
+          <h3>Courses Progress</h3>
+          <p>Completed: ${progressData.completedCourses} / ${progressData.totalCourses}</p>
+        </div>
+        <div class="dashboard-item">
+          <h3>Projects Progress</h3>
+          <p>Completed: ${progressData.completedProjects} / ${progressData.totalProjects}</p>
+        </div>
+      `;
+    }
+
+    // Load dashboard data when the page loads
+    document.addEventListener('DOMContentLoaded', () => {
+      displayEnrolledCourses();
+      displayCompletedProjects();
+      displayProgress();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Courses - E-Learning Platform</title>
+  <link rel="icon" type="image/png" href="https://example.com/path-to-your-icon.png"> <!-- Replace with your favicon URL -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Trirong">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> <!-- For icons -->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f9;
+      color: #333;
+    }
+    header {
+      background-color: #6200ea;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    #courses {
+      margin: 2rem auto;
+      padding: 1rem;
+      max-width: 1200px;
+    }
+    .course-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    .course-card {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+    .course-card:hover {
+      transform: translateY(-5px);
+    }
+    .course-card-content {
+      padding: 1rem;
+      text-align: center;
+    }
+    .course-card h3 {
+      font-family: "Trirong", serif;
+      margin: 0 0 0.5rem;
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+    .course-card h3 i {
+      font-size: 1.5rem;
+      color: #6200ea;
+    }
+    .course-card p {
+      margin: 0 0 1rem;
+      color: #666;
+    }
+    .course-card .price {
+      font-size: 1.25rem;
+      font-weight: bold;
+      color: #6200ea;
+      margin: 1rem 0;
+    }
+    .course-card button {
+      background-color: #03dac6;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+      width: 100%;
+      border-radius: 4px;
+      margin: 0.5rem 0;
+    }
+    .course-card button:hover {
+      background-color: #018786;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #333;
+      color: white;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-content {
+      background-color: white;
+      padding: 2rem;
+      border-radius: 8px;
+      text-align: center;
+      max-width: 400px;
+      width: 100%;
+    }
+    .form-container {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      width: 300px;
+      text-align: center;
+    }
+    .form-container input {
+      width: 100%;
+      margin: 10px 0;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-family: system-ui;
+    }
+    .form-container button {
+      background-color: #03dac6;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+      width: 100%;
+      border-radius: 4px;
+      margin: 0.5rem 0;
+    }
+    .form-container button:hover {
+      background-color: #018786;
+    }
+    .confirmation-modal {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      max-width: 400px;
+      width: 100%;
+    }
+    .confirmation-modal h3 {
+      color: #28a745;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Courses - E-Learning Platform</h1>
+  </header>
+  <main>
+    <section id="courses">
+      <h2>Available Courses</h2>
+      <div class="course-list" id="course-list"></div>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2025 E-Learning Platform Developed By Shahi Yadav</p>
+  </footer>
+
+  <!-- Enrollment Form -->
+  <div id="form-modal" class="form-container">
+    <h3>Student Admission Form</h3>
+    <input type="text" id="first-name" placeholder="First Name" required>
+    <input type="text" id="last-name" placeholder="Last Name" required>
+    <input type="email" id="email" placeholder="Enter Email" required>
+    <input type="number" id="phone" placeholder="Enter Phone Number" required>
+    <button onclick="submitForm()">Pay Fees</button>
+  </div>
+
+  <!-- UPI Payment Modal -->
+  <div id="upi-modal" class="modal">
+    <div class="modal-content">
+      <h3>Pay with UPI</h3>
+      <p>Scan the QR code or use the UPI ID below to complete your payment.</p>
+      <img src="C:/Users/HP/Downloads/WhatsApp Image 2025-02-16 at 00.57.22_ea67ac33.jpg" width="120px" alt="UPI QR Code"> <!-- Replace with your UPI QR code -->
+      <p><strong>UPI ID:</strong> shaniyadav226-1@oksbi</p>
+      <button onclick="confirmPayment()">Confirm Payment</button>
+      <button onclick="closeModal()">Close</button>
+    </div>
+  </div>
+
+  <!-- Payment Confirmation Modal -->
+  <div id="confirmation-modal" class="confirmation-modal">
+    <h3>Payment Successful!</h3>
+    <p>You have successfully enrolled in the course.</p>
+    <button onclick="closeConfirmationModal()">Close</button>
+  </div>
+
+  <script>
+    const courses = [
+      { title: "C++ Programming", icon: "fas fa-code", price: "₹1999" },
+      { title: "Java Programming", icon: "fab fa-java", price: "₹2499" },
+      { title: "Python Programming", icon: "fab fa-python", price: "₹2999" },
+      { title: "Cyber Security", icon: "fas fa-shield-alt", price: "₹3499" },
+      { title: "Data Science", icon: "fas fa-chart-line", price: "₹3999" },
+      { title: "Machine Learning", icon: "fas fa-robot", price: "₹4499" },
+      { title: "Web Development", icon: "fas fa-laptop-code", price: "₹4999" },
+      { title: "Mobile App Development", icon: "fas fa-mobile-alt", price: "₹5499" },
+      { title: "Blockchain Technology", icon: "fas fa-link", price: "₹5999" }
+    ];
+
+    let selectedCourse = null;
+
+    function displayCourses() {
+      document.getElementById('course-list').innerHTML = courses.map(course => `
+        <div class="course-card">
+          <div class="course-card-content">
+            <h3><i class="${course.icon}"></i> ${course.title}</h3>
+            <div class="price">${course.price}</div>
+            <button onclick="enrollCourse('${course.title}')">Enroll Now</button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function enrollCourse(title) {
+      selectedCourse = title;
+      document.getElementById('form-modal').style.display = 'block';
+    }
+
+    function submitForm() {
+      const firstName = document.getElementById('first-name').value;
+      const lastName = document.getElementById('last-name').value;
+      const email = document.getElementById('email').value;
+      const phone = document.getElementById('phone').value;
+
+      if (!firstName || !lastName || !email || !phone) {
+        alert('Please fill all fields.');
+        return;
+      }
+
+      document.getElementById('form-modal').style.display = 'none';
+      document.getElementById('upi-modal').style.display = 'flex';
+    }
+
+    function confirmPayment() {
+      document.getElementById('upi-modal').style.display = 'none';
+      document.getElementById('confirmation-modal').style.display = 'block';
+    }
+
+    function closeModal() {
+      document.getElementById('upi-modal').style.display = 'none';
+    }
+
+    function closeConfirmationModal() {
+      document.getElementById('confirmation-modal').style.display = 'none';
+      alert(`You have successfully enrolled in ${selectedCourse}!`);
+    }
+
+    document.addEventListener('DOMContentLoaded', displayCourses);
+  </script>
+</body>
+</html>
